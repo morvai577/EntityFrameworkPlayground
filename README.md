@@ -58,6 +58,18 @@ We also need to **enable code first migrations**. Go back to Package Manager Con
 Now everytime we want to make a change to our model, we start with the code. Everytime a change is made to the model, we need to create a migration. You can do this by going to package manager console and use the command ```add-migration nameOfMigrationHere```. The name represents the kind of change we have made. This as a result will create a new folder called **Migrations**. Inside this folder you will have two generated files:
 
 1) The first file is the migration itself with a date-time stamp.
-    - This file will have two methods: 1) Up and 2) Down. The Up method is used to updgrade the database and the second one is used to downgrade the database.
+    - This file will have two methods: 1) Up and 2) Down. The Up method is used to update the database and the second one is used to downgrade the database.
 
-The next step is to actually run the migration
+The next step is to actually run the migration. When we run the database, the EF looks at the database - it takes the current version and then figures out what migrations need to be run in order to update it to the latest version. Then it uses the migration classes that were generated and converts it to SQL code for the database to run.
+
+To actually run the migration, go back to Package Manager Console and run the following command: ```Update-Database```. This is the end of the code first workflow.
+
+### Database First vs. Code First Approaches
+There are no advantages of one approach over the other, it comes down to your preference and requirements.
+
+However, there are some general advantages the code first approach has:
+
+- Full versioning of database.
+- Much faster to write code, so we can create the database faster.
+
+## Building a Model Using Code-First Workflow
